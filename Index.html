@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy Space</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:
+    radial-gradient(circle at center,#35155D 0%,#1A1A40 40%,#000 100%);
+    position:relative;
+}
+
+/* Bintang */
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:0.2;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* Shooting Star */
+
+.shooting-star{
+    position:absolute;
+    width:200px;
+    height:2px;
+    background:linear-gradient(to right,white,transparent);
+    transform:rotate(-45deg);
+    animation:shoot 5s linear infinite;
+}
+
+@keyframes shoot{
+
+    0%{
+        transform:translateX(-300px) translateY(-300px) rotate(-45deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateX(1700px) translateY(900px) rotate(-45deg);
+        opacity:0;
+    }
+
+}
+
+/* Planet */
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+}
+
+.planet1{
+    width:180px;
+    height:180px;
+    background:linear-gradient(#ffb3ec,#b388ff);
+    top:40px;
+    left:50px;
+    box-shadow:0 0 50px #ffb3ec;
+}
+
+.planet2{
+    width:130px;
+    height:130px;
+    background:linear-gradient(#7b2cbf,#3c096c);
+    bottom:60px;
+    right:100px;
+    box-shadow:0 0 50px #7b2cbf;
+}
+
+/* Black Hole */
+
+.blackhole{
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle,#000 20%,#5a189a 50%,transparent 70%);
+    bottom:-120px;
+    right:-50px;
+    animation:spin 10s linear infinite;
+    box-shadow:0 0 100px #7b2cbf;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* Main Content */
+
+.content{
+    position:relative;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
+    color:white;
+}
+
+/* Foto Profile */
+
+.profile{
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 0 40px white;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* Nama */
+
+h1{
+    margin-top:20px;
+    font-size:50px;
+    letter-spacing:4px;
+    text-shadow:0 0 20px white;
+}
+
+/* Tombol Instagram */
+
+.instagram-btn{
+    margin-top:25px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+.instagram-btn:hover{
+    transform:scale(1.08);
+    background:
+    linear-gradient(
+    45deg,
+    #833AB4,
+    #FD1D1D,
+    #FCB045
+    );
+}
+
+.instagram-btn img{
+    width:30px;
+    height:30px;
+}
+
+.instagram-btn span{
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Rocket */
+
+.rocket{
+    position:absolute;
+    width:130px;
+    top:120px;
+    right:-150px;
+    animation:rocketFly 12s linear infinite;
+}
+
+@keyframes rocketFly{
+
+    0%{
+        transform:translateX(0px) translateY(0px) rotate(20deg);
+    }
+
+    100%{
+        transform:translateX(-1800px) translateY(500px) rotate(20deg);
+    }
+
+}
+
+/* Kucing Background */
+
+.cat{
+    position:absolute;
+    width:90px;
+    opacity:0.9;
+}
+
+.cat1{
+    top:10%;
+    left:10%;
+    animation:cat1 6s ease-in-out infinite;
+}
+
+.cat2{
+    top:65%;
+    left:80%;
+    animation:cat2 5s ease-in-out infinite;
+}
+
+.cat3{
+    top:30%;
+    left:75%;
+    animation:cat3 7s ease-in-out infinite;
+}
+
+.cat4{
+    top:75%;
+    left:15%;
+    animation:cat1 8s ease-in-out infinite;
+}
+
+.cat5{
+    top:50%;
+    left:5%;
+    animation:cat2 6s ease-in-out infinite;
+}
+
+@keyframes cat1{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(10deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+}
+
+@keyframes cat2{
+
+    0%{
+        transform:translateX(0px);
+    }
+
+    50%{
+        transform:translateX(30px);
+    }
+
+    100%{
+        transform:translateX(0px);
+    }
+
+}
+
+@keyframes cat3{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(20px) rotate(-10deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="shooting-star" style="top:100px; left:-300px;"></div>
+
+<div class="shooting-star"
+style="top:300px; left:-500px; animation-delay:2s;"></div>
+
+<div class="planet planet1"></div>
+
+<div class="planet planet2"></div>
+
+<div class="blackhole"></div>
+
+<!-- Kucing Background -->
+
+<img src="kucing_galaksi_astronaut.gif" class="cat cat1">
+
+<img src="kucing_galaksi_astronaut.gif" class="cat cat2">
+
+<img src="kucing_galaksi_astronaut.gif" class="cat cat3">
+
+<img src="kucing_galaksi_astronaut.gif" class="cat cat4">
+
+<img src="kucing_galaksi_astronaut.gif" class="cat cat5">
+
+<!-- Rocket -->
+
+<img src="https://cdn-icons-png.flaticon.com/512/3212/3212608.png" class="rocket">
+
+<!-- Content -->
+
+<div class="content">
+
+<img src="foto-saya.png" class="profile">
+
+<h1>Dede Agung Gunawan</h1>
+
+<a href="https://www.instagram.com/firstmultiverse?igsh=YnNqdGdxYmM1OHlh"
+target="_blank"
+class="instagram-btn">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+
+<span>@firstmultiverse</span>
+
+</a>
+
+</div>
+
+<script>
+
+const starsContainer =
+document.querySelector('.stars');
+
+for(let i=0;i<250;i++){
+
+const star =
+document.createElement('div');
+
+star.classList.add('star');
+
+star.style.top =
+Math.random()*100 + '%';
+
+star.style.left =
+Math.random()*100 + '%';
+
+star.style.animationDuration =
+Math.random()*3 + 1 + 's';
+
+starsContainer.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
